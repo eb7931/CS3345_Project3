@@ -5,6 +5,8 @@ public class Main{
 		
 		AdjacencyList flightMap = new AdjacencyList();
 		flightMap.debug();
-		flightMap.analyzeFiles(flightDataFile, flightPlanFile);
+		flightMap.analyzeFiles(flightDataFile);
+		flightMap.printCities();
+		flightMap.printEdges();
 	}
 }
