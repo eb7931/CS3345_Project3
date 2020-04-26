@@ -68,27 +68,35 @@ public class AdjacencyList{
 	}
 	
 	private void addOrigin(String name) {
-		for(int i = 0; i < cities.size(); i++) {
-			if(cities.indexOf(new Origin(name)) == -1) {
-				cities.add(new Origin(name));
+		if(!cities.contains(new Origin(name))) {
+			cities.add(new Origin(name));
+			if(debug) {
+				System.out.println("Adding " + name + " to cities.");
 			}
 		}
 	}
 	
 	private class Origin{
 		private String name;
-		private LinkedList<Destination> possibleDestinations = null;
+		private LinkedList<Destination> possibleDestinations;
 		private Origin nextOrigin = null;
 		
 		public Origin(String cityName) {
+			possibleDestinations = new LinkedList<Destination>() ;
 			name = cityName;
 		}
 		
-		public boolean equals(Origin o1, Origin o2) {
-			if(o1.name() == o2.name())
-				return true;
-			else 
+		@Override
+		public boolean equals(Object o) {
+			if(!(o instanceof Origin)) {
 				return false;
+			}
+			else {
+				if(((Origin) o).name() == this.name())
+					return true;
+				else 
+					return false;
+			}
 		}
 		
 		public LinkedList<Destination> destinations() {
@@ -110,11 +118,17 @@ public class AdjacencyList{
 			length = l;
 		}
 		
-		public boolean equals(Origin o1, Origin o2) {
-			if(o1.name() == o2.name())
-				return true;
-			else 
+		@Override
+		public boolean equals(Object o) {
+			if(!(o instanceof Destination)) {
 				return false;
+			}
+			else {
+				if(((Destination) o).name() == this.name())
+					return true;
+				else 
+					return false;
+			}
 		}
 		
 		public String name() {return name;}
