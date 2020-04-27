@@ -16,6 +16,17 @@ public class Origin{
 		
 		public static void debug() {debug = true;}
 		
+		public boolean leadsTo(String name) {
+			return leadsTo(new Destination(name));
+		}
+		
+		public boolean leadsTo(Destination city) {
+			if(possibleDestinations.contains(city))
+				return true;
+			else 
+				return false;
+		}
+		
 		@Override
 		public boolean equals(Object o) {
 			if(!(o instanceof Origin)) {

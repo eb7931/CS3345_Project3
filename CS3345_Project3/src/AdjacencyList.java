@@ -3,22 +3,51 @@ import java.util.*;
 
 public class AdjacencyList{
 	private LinkedList<Origin> cities;
-	private boolean debug = false;
-	private boolean debugEquals = false;
+	private static boolean debug = false;
 	
 	public AdjacencyList() {
 		cities = new LinkedList<Origin>();
 	}
 	
-	public void debug() {
-		debug = true;
-		Destination.debug();
-		Origin.debug();
-	}
+	public static void debug() {debug = true;}
 	
 	public void analyzeFiles(String flightDataFile) {
 		parseFlightData(flightDataFile);
 		
+	}
+	
+	public Origin get(String cityName) {
+		int index = cities.indexOf(new Origin(cityName));
+		if(index != -1) {
+			return cities.get(index);
+		}
+		else {
+			return null;
+		}
+	}
+	
+	public Origin get(Origin city) {
+		int index = cities.indexOf(new Origin(city.name()));
+		if(index != -1) {
+			return cities.get(index);
+		}
+		else {
+			return null;
+		}
+	}
+	
+	public Origin get(Destination city) {
+		int index = cities.indexOf(new Origin(city.name()));
+		if(index != -1) {
+			return cities.get(index);
+		}
+		else {
+			return null;
+		}
+	}
+
+	public LinkedList<Origin> getCities() {
+		return cities;
 	}
 	
 	private void parseFlightData(String fileName) {
@@ -39,6 +68,7 @@ public class AdjacencyList{
 					}
 				}
 			}
+			input.close();
 		}
 		catch(Exception e) {
 			e.printStackTrace();

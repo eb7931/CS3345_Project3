@@ -1,3 +1,7 @@
 /flightPlans.txt
 /flightData.txt
 /Destination.class
+/FlightPlanner$Path.class
+/FlightFinder.class
+/FlightFinder$Flight.class
+/Path.class

@@ -11,6 +11,10 @@ public class Destination{
 		cost = c;
 		length = l;
 	}
+	
+	public Destination(String cityName) {
+		name = cityName;
+	}
 
 	public static void debug() {debug = true;}
 	
