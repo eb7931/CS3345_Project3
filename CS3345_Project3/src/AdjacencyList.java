@@ -13,7 +13,6 @@ public class AdjacencyList{
 	
 	public void analyzeFiles(String flightDataFile) {
 		parseFlightData(flightDataFile);
-		
 	}
 	
 	public Origin get(String cityName) {

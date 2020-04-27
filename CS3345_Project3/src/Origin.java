@@ -1,13 +1,10 @@
 import java.util.LinkedList;
-
-
-
+		
 public class Origin{
 		private static boolean debug = false;
 		private boolean debugEquals = false;
 		private String name;
 		private LinkedList<Destination> possibleDestinations;
-		private Origin nextOrigin = null;
 		
 		public Origin(String cityName) {
 			possibleDestinations = new LinkedList<Destination>() ;

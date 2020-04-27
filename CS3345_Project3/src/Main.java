@@ -13,11 +13,9 @@ public class Main{
 			AdjacencyList.debug();
 			FlightPlanner.debug();
 			Origin.debug();
-			Destination.debug();
 			Path.debug();
 			FlightFinder.debug();	
 		}
-		
 		
 		flightMap.analyzeFiles(flightDataFile);
 		flights.analyzeFiles(flightMap, flightPlanFile);

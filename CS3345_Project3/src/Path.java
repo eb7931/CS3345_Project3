@@ -7,13 +7,10 @@ public class Path{
 	private AdjacencyList flights;
 	private String start;
 	private String end;
-	
 	private LinkedList<String> cities;
 	
 	public boolean connects(String departing, String arriving) {
-		
 		if(start.equals(departing) && end.equals(arriving)) {
-			//System.out.println(departing + " connects to " + arriving);
 			return true;
 		}
 		else {
@@ -21,7 +18,6 @@ public class Path{
 			return false;
 		}
 	}
-	
 	
 	public static void debug() {debug = true;}
 	
@@ -41,6 +37,7 @@ public class Path{
 	
 	public String toString() {
 		String pathString = "";
+		
 		for(int i = 0; i < cities.size(); i++) {
 			pathString += cities.get(i);
 			if(i < cities.size() - 1) {
@@ -57,6 +54,7 @@ public class Path{
 		
 		if(debug) {
 			String path = "\nPrint Path constructor\nPath: ";
+			
 			for(int i = 0; i < indexStack.size(); i++) {
 				path += indexStack.get(i);
 				if(i < indexStack.size() - 1)
@@ -70,7 +68,6 @@ public class Path{
 			if(i == 0) {
 				Origin current = flights.getCities().get(indexStack.get(0));
 				cities.add(current.name());
-				//System.out.println("pushing " + current.name());
 			}
 			else {
 				Origin prev = flights.get(cities.get(i - 1));
@@ -80,7 +77,6 @@ public class Path{
 				addCost(c);
 				addLength(l);
 				cities.add(current.name());
-				//System.out.println("pushing " + current.name());
 			}
 		}
 		start = cities.getFirst();
@@ -93,11 +89,6 @@ public class Path{
 		
 	}
 	
-	public void addCity(String name, double c, double l) {
-		cities.add(name);
-		addCost(c);
-		addLength(l);
-	}
 	public double cost() {return cost;}
 	public double length() {return length;}
 	public void addCost(double c) {cost += c;}

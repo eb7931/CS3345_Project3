@@ -1,8 +1,6 @@
 
 public class Destination{
-	private static boolean debug = false;
 	private String name;
-	private Destination nextDestination = null;
 	private double cost;
 	private double length;
 	
@@ -15,8 +13,6 @@ public class Destination{
 	public Destination(String cityName) {
 		name = cityName;
 	}
-
-	public static void debug() {debug = true;}
 	
 	@Override
 	public boolean equals(Object o) {
